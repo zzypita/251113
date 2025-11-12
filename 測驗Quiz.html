@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>測驗 Quiz</title>
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <script src="scorm_api_wrapper.js"></script>
+    <script>
+        // Initialize SCORM
+        var scorm = pipwerks.SCORM;
+        scorm.version = "1.2";
+
+        function init() {
+            var success = scorm.init();
+            if (success) {
+                // Load previous score or data if available
+                var score = scorm.get("cmi.score.raw");
+                document.getElementById("score").innerText = score ? score : "No previous score.";
+            }
+        }
+
+        function submitQuiz() {
+            // Capture user responses and calculate score
+            var score = calculateScore(); // Implement this function based on your quiz logic
+            scorm.set("cmi.score.raw", score);
+            scorm.set("cmi.completion_status", "completed");
+            scorm.quit();
+        }
+
+        window.onload = init;
+    </script>
+</head>
+<body>
+    <h1>測驗 Quiz</h1>
+    <div id="quiz-container">
+        <!-- Quiz questions go here -->
+        <p id="score">Loading score...</p>
+        <button onclick="submitQuiz()">Submit Quiz</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="com.example.scormquiz" version="1.0" xmlns="http://www.imsglobal.org/xsd/imscp" xmlns:adl="http://www.adlnet.org/xsd/adlcp">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+    <title>測驗 Quiz</title>
+    <description>A SCORM compliant quiz for Moodle.</description>
+    <keywords>quiz, SCORM, Moodle</keywords>
+  </metadata>
+  <organizations default="org1">
+    <organization identifier="org1">
+      <title>測驗 Quiz Organization</title>
+      <item identifier="item1" identifierref="resource1">
+        <title>測驗 Quiz</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="resource1" type="webcontent" adlcp:scormtype="sco">
+      <file href="測驗Quiz.html" />
+      <file href="scorm_api_wrapper.js" />
+      <file href="assets/style.css" />
+    </resource>
+  </resources>
+</manifest>
